@@ -1,0 +1,7 @@
+---
+- hosts: LNMP
+  roles:
+   - nginx
+   - php7.4
+   - mysql
+

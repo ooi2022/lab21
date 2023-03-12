@@ -1,0 +1,17 @@
+# tasks file for php7.4
+---
+- name: Update apt-get repo and cache
+  apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+
+- name: "Install PHP"
+  apt:
+    name=php7.4
+    state=present
+
+- name: "Install of packages PHP-FPM"
+  apt: name={{ item }} state=latest
+  loop:
+      - php7.4-fpm
+      - php7.4-mysql
+      - php7.4-xml
+      - php7.4-curl
